@@ -17,3 +17,13 @@ jobs:
           path: | # '**.py' todos arquivos python
             '**.py' #
             README.md
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: deliver
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: projetoziado.zip
+      - name: Display structure of downloaded files
+        run: ls -R
