@@ -4,12 +4,12 @@ on:
     branches:
       - main
 jobs:
-  build:
+  build: # nome
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-        
+        # ate aqui eh o pseudo-padrao
       - name: Python Lint Code Scanning Action
         uses: advanced-security/python-lint-code-scanning-action@v1.1.1
         with:
