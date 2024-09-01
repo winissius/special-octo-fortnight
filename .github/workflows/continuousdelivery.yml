@@ -28,7 +28,7 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R #teste
 
-  docker-buildx:
+  docker:
     runs-on: ubuntu-latest
     steps:
       -
