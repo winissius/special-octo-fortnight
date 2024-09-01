@@ -47,7 +47,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }} #added no github secrets
-          # password: ${{ secrets.DOCKERHUB_TOKEN }} #added no github secrets
+          password: ${{ secrets.DOCKERHUB_TOKEN }} #added no github secrets
       -
         name: Build and push
         uses: docker/build-push-action@v6
