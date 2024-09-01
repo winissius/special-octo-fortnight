@@ -4,7 +4,7 @@ on:
     branches:
       - main # ou qualquer outra branch
 jobs:
-  deliver: # nome
+  deliver:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -28,6 +28,7 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R #teste
 
+
   docker:
     runs-on: ubuntu-latest
     steps:
@@ -35,23 +36,21 @@ jobs:
         name: Checkout
         uses: actions/checkout@v4
       -
-        # Add support for more platforms with QEMU (optional)
-        # https://github.com/docker/setup-qemu-action
+        #
+        #
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-      -
-        name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
+      #- name: Login to Docker Hub
+      #  uses: docker/login-action@v3
+      #  with:
+      #    username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #    password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          # context: . # remover
-          push: true # alterar para true
+          context: .
+          push: false
           tags: user/app:latest
